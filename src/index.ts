@@ -5,7 +5,6 @@ import "./infrastructure/config";
 
 import { TwitchChat, TwitchAPI } from "./infrastructure/twurple";
 import { onMessageCustomCommandHandler } from "./infrastructure/handlers/onMessageCustomComandHandler";
-import { CommandEntity } from "./models/Command";
 
 const run = async () => {
   await TwitchChat.connect();

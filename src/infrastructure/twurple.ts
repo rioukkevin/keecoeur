@@ -3,9 +3,8 @@ import { StaticAuthProvider } from "@twurple/auth";
 import { ChatClient } from "@twurple/chat";
 import logger from "./logger";
 
-const CHANNEL_NAME = "keequer";
-
-const config = JSON.parse(process.env.CONFIG ?? "");
+const config = JSON.parse(process.env.TWITCH_CONFIG ?? "");
+const channels = JSON.parse(process.env.TWITCH_CHANNEL ?? "");
 
 export const authProvider = new StaticAuthProvider(
   process.env.TWITCH_CLIENT_ID ?? "",
@@ -15,7 +14,7 @@ export const authProvider = new StaticAuthProvider(
 
 export const TwitchChat = new ChatClient({
   authProvider,
-  channels: [CHANNEL_NAME],
+  channels: channels,
   logger: {
     custom: logger,
     minLevel: "warning",

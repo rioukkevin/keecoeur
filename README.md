@@ -1,6 +1,21 @@
 # keecoeur le bot
 
-## Modèles de BDD
+## Setup
+
+Copy .env.example > .env
+
+Fill with client_secret + client_id + twitch_config
+
+```sh
+yarn
+yarn dev # Ctrl+C
+chmod 777 ./data/db.sqlite
+yarn dev
+```
+
+> **For token claim to one dev**
+
+## Database models
 
 ### Commands
 
