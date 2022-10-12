@@ -7,18 +7,23 @@
   "author": "RIOU Kevin <kevin@riou.pro>",
   "license": "MIT",
   "private": false,
+  "module": "commonjs",
   "scripts": {
     "build": "tsc --build .",
     "execute": "nodemon ./build/index.js"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/node": "^18.8.3"
+    "@types/node": "^18.8.3",
+    "@types/signale": "^1.4.4"
   },
   "dependencies": {
     "@twurple/api": "^5.2.5",
     "@twurple/auth": "^5.2.5",
     "@twurple/chat": "^5.2.5",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "sequelize": "^6.25.0",
+    "signale": "^1.4.0",
+    "sqlite3": "^5.1.2"
   }
 }

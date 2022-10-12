@@ -1,10 +1,11 @@
 // import { ApiClient } from "@twurple/api/lib/ApiClient";
+import { ApiClient } from "@twurple/api/lib";
 import { ChatClient } from "@twurple/chat/lib";
 import { TwitchPrivateMessage } from "@twurple/chat/lib/commands/TwitchPrivateMessage";
-import { commands } from "../commands";
+import { commands } from "../../commands";
 
 export type TMessageHandler = (
-  utils: { Chat: ChatClient; API: null },
+  utils: { Chat: ChatClient; API: ApiClient },
   data: { channel: string; msg: TwitchPrivateMessage }
 ) => Promise<void>;
 
@@ -16,7 +17,7 @@ export interface IMessageFilter {
 
 export const onMessageHandler: (
   Chat: ChatClient,
-  API: null
+  API: ApiClient
 ) => (
   channel: string,
   user: string,

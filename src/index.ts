@@ -1,54 +1,27 @@
-import * as dotenv from "dotenv";
-import {
-  ClientCredentialsAuthProvider,
-  StaticAuthProvider,
-} from "@twurple/auth";
-import { ChatClient } from "@twurple/chat";
-import { onMessageHandler } from "./infrastructure/onMessageHandler";
-// import { ApiClient } from "@twurple/api/lib/ApiClient";
+import { onMessageHandler } from "./infrastructure/handlers/onMessageHandler";
+import "./infrastructure/sequelize";
+import "./infrastructure/logger";
+import "./infrastructure/config";
 
-const CHANNEL_NAME = "keequer";
-
-const configuration = () => {
-  dotenv.config();
-
-  const config = JSON.parse(process.env.CONFIG ?? "");
-
-  const authProvider = new StaticAuthProvider(
-    process.env.TWITCH_CLIENT_ID ?? "",
-    config.access_token,
-    config.scope
-  );
-
-  const chatClient = new ChatClient({
-    authProvider,
-    channels: [CHANNEL_NAME],
-  });
-
-  // const apiClient = new ApiClient({ authProvider });
-
-  return {
-    Chat: chatClient,
-    API: null,
-  };
-};
+import { TwitchChat, TwitchAPI } from "./infrastructure/twurple";
+import { onMessageCustomCommandHandler } from "./infrastructure/handlers/onMessageCustomComandHandler";
+import { CommandEntity } from "./models/Command";
 
 const run = async () => {
-  const { Chat, API } = configuration();
+  await TwitchChat.connect();
 
-  await Chat.connect();
+  TwitchChat.onMessage(onMessageHandler(TwitchChat, TwitchAPI));
+  TwitchChat.onMessage(onMessageCustomCommandHandler(TwitchChat, TwitchAPI));
 
-  Chat.onMessage(onMessageHandler(Chat, API));
-
-  Chat.onRaid((_, user) => {
-    Chat.announce(
-      CHANNEL_NAME,
+  TwitchChat.onRaid((channel, user) => {
+    TwitchChat.announce(
+      channel,
       `Merci pour le raid ${user}, bienvenue à tous parmis les Kékés`
     );
   });
 
-  Chat.onBan((_, user) => {
-    Chat.say(CHANNEL_NAME, `@${user} Cheh :kappa: !`);
+  TwitchChat.onBan((channel, user) => {
+    TwitchChat.say(channel, `@${user} Cheh :kappa: !`);
   });
 };
 

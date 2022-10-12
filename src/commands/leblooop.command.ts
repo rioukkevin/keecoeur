@@ -5,16 +5,16 @@ import {
 } from "../infrastructure/handlers/onMessageHandler";
 
 export const setting: IMessageFilter = {
-  is: "!corky",
+  is: "!leblooop",
 };
 
 export const run: TMessageHandler = async ({ Chat }, { channel, msg }) => {
-  Chat.say(channel, "Deuxième meilleur bot, parce que le premier c'est moi !");
+  Chat.say(channel, "Mon bisounours amphirLove");
 };
 
-const corkyCommand: ICommands = {
+const leblooopCommand: ICommands = {
   run,
   setting,
 };
 
-export default corkyCommand;
+export default leblooopCommand;
