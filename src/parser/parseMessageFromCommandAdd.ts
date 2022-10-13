@@ -1,21 +1,18 @@
 import { TwitchPrivateMessage } from "@twurple/chat/lib/commands/TwitchPrivateMessage";
-import logger from "../infrastructure/logger";
+import { parseParameters } from "./parseMessageParameters";
 
 export interface IParsedMessageContent {
   input: string;
   output: string;
 }
 
-export const parseMessage = (
+export const parseMessageFromCommandAdd = (
   command: TwitchPrivateMessage
 ): IParsedMessageContent => {
-  const parsedMessageArguments = command.content.value
-    .split('"')
-    .filter((value) => !!value.trim());
+  const parsedMessageArguments = parseParameters(command.content.value);
 
-  logger.debug("parsedMessageArguments : ", parsedMessageArguments);
-  const input = parsedMessageArguments[1];
-  const output = parsedMessageArguments[2];
+  const input = parsedMessageArguments[0];
+  const output = parsedMessageArguments[1];
 
   return {
     input,

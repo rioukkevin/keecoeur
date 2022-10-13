@@ -1,10 +1,10 @@
-import { onMessageHandler } from "./infrastructure/handlers/onMessageHandler";
-import "./infrastructure/sequelize";
-import "./infrastructure/logger";
 import "./infrastructure/config";
+import { onMessageHandler } from "./infrastructure/handlers/onMessageHandler";
+import "./infrastructure/logger";
+import "./infrastructure/sequelize";
 
-import { TwitchChat, TwitchAPI } from "./infrastructure/twurple";
 import { onMessageCustomCommandHandler } from "./infrastructure/handlers/onMessageCustomComandHandler";
+import { TwitchAPI, TwitchChat } from "./infrastructure/twurple";
 
 const run = async () => {
   await TwitchChat.connect();

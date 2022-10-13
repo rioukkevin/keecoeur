@@ -25,6 +25,7 @@
     "@twurple/auth": "^5.2.5",
     "@twurple/chat": "^5.2.5",
     "dotenv": "^16.0.3",
+    "handlebars": "^4.7.7",
     "sequelize": "^6.25.0",
     "signale": "^1.4.0",
     "sqlite3": "^5.1.2"

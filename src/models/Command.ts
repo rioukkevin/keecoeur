@@ -1,13 +1,9 @@
 import {
-  Association,
   CreationOptional,
   DataTypes,
-  HasOneGetAssociationMixin,
-  HasOneSetAssociationMixin,
   InferAttributes,
   InferCreationAttributes,
   Model,
-  NonAttribute,
 } from "sequelize";
 import DB from "../infrastructure/sequelize";
 
@@ -19,6 +15,7 @@ export class CommandEntity extends Model<
 > {
   declare id: CreationOptional<string>;
   declare channel: string;
+  declare trigger: string;
   declare input: string;
   declare output: string;
 }
@@ -33,6 +30,12 @@ CommandEntity.init(
     channel: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: "uniqueContraintTriggerChannel",
+    },
+    trigger: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: "uniqueContraintTriggerChannel",
     },
     input: {
       type: DataTypes.STRING,
