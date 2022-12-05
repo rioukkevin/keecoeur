@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "graphql.vscode-graphql",
+    "johnpapa.vscode-cloak",
+    "dsznajder.es7-react-js-snippets",
+    "graphql.vscode-graphql-syntax",
+    "johnpapa.vscode-peacock",
+    "bradlc.vscode-tailwindcss",
+    "rioukkevin.vscode-git-commit"
+  ]
+}

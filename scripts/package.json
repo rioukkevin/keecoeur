@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "scripts": {
+    "generate:scripts": "cd ./generators && node ./scripts.js"
+  }
+}

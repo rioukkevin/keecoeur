@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "graphql.vscode-graphql",
+    "johnpapa.vscode-cloak",
+    "graphql.vscode-graphql-syntax",
+    "johnpapa.vscode-peacock",
+    "rioukkevin.vscode-git-commit"
+  ]
+}

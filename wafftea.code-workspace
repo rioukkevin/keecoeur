@@ -1,0 +1,48 @@
+{
+  "folders": [
+    {
+      "path": "./api",
+      "name": "Back (public & private)"
+    },
+    {
+      "path": "./app",
+      "name": "Front (public)"
+    },
+    {
+      "path": "./database",
+      "name": "Database (private)"
+    },
+    {
+      "path": "./shared",
+      "name": "Shared"
+    },
+    {
+      "path": "./scripts",
+      "name": "Scripts (dev & build)"
+    },
+    {
+      "path": ".",
+      "name": "Root"
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#af79ff",
+      "activityBar.background": "#af79ff",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#9f4000",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#af79ff",
+      "tab.activeBorder": "#af79ff"
+    },
+    "peacock.color": "#9146FF"
+  },
+  "extensions": {
+    "recommendations": [
+      "johnpapa.vscode-cloak",
+      "johnpapa.vscode-peacock",
+      "rioukkevin.vscode-git-commit"
+    ]
+  }
+}
