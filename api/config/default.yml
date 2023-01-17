@@ -1,0 +1,6 @@
+twitch:
+  auth:
+    codeToToken:
+      url: https://id.twitch.tv/oauth2/token
+      grantType: authorization_code
+      redirectUri: http://localhost:3000/authed
